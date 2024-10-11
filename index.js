@@ -3,8 +3,8 @@ const password = "x";
 let headers = new Headers();
 headers.set("Authorization", "Basic " + btoa(username + ":" + password));
 const regex = /[/|?|:]/g;
-// documents 94/84
-// developer hub 14/13
+// documents (94/84) (total/public)
+// developer hub (14/13) (total/public)
 
 async function gettingPagesDocs() {
   const response = await fetch(
@@ -14,10 +14,7 @@ async function gettingPagesDocs() {
   if (!response.ok) throw new Error("Could not fetch pages");
 
   const json = await response.json();
-  return json.articles.pages; // returns how many pages there are for that collection (max 50 per page)
-}
-function writeTo(str){
-
+  return json.articles.pages; // returns how many pages there are for that collection (max 50 artcles per page)
 }
 
 async function retrieveDocsFromDocuments() {
